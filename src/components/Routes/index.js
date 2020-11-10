@@ -6,6 +6,7 @@ import { history } from '../../history';
 import Home from '../../pages/Home';
 import Login from '../../pages/Login';
 import Register from '../../pages/Register';
+import Main from '../Main/Index';
 import NotFound from '../NotFound';
 import PrivateRoute from '../PriveteRoute/PrivateRoute';
 
@@ -13,6 +14,7 @@ const Routes = () => (
 
     <BrowserRouter history={history}>
         <Switch>
+            <Route component={Main} exact path="/main" />
             <Route component={Login} exact path="/login" />
             <Route component={Register} exact path="/register" />
             <PrivateRoute component={Home} exact path="/" />
