@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 
 //import Dash from './pages/Dash';
 import GlobalStyles from './styles/global';
@@ -8,6 +10,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
+      <ReactNotification />
       <Routes />
     </>
   );

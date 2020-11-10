@@ -9,7 +9,6 @@ import Register from '../../pages/Register';
 import NotFound from '../NotFound';
 import PrivateRoute from '../PriveteRoute/PrivateRoute';
 
-
 const Routes = () => (
 
     <BrowserRouter history={history}>

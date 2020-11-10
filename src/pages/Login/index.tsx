@@ -9,6 +9,7 @@ import { Container, Formcontent, Buttonform } from './styles';
 //Componentes:
 import Input from '../../components/Input';
 import Check from '../../components/Checkbox';
+import { Notify } from '../../components/Notification';
 import { history } from "../../history";
 
 const remember = [{ id: 1, name: 'Lembrar-me' }];
@@ -35,9 +36,8 @@ const Login = () => {
         resolver: yupResolver(schema),
     });
 
-    const onSubmit = (dataInput: InputsProps) => {
-        console.log(dataInput);
-        
+
+    const onSubmit = (dataInput: InputsProps) => {                
         axios.post('http://127.0.0.1:3333/login', dataInput)
             .then(resp => {
                 const { data } = resp;
@@ -46,8 +46,9 @@ const Login = () => {
                     history.push('/')
                 }
             })
-            .catch((error) => { console.log('MEU ERRO: ' + error) })
-
+            .catch((error) => {                 
+                Notify({type:'danger', title:'Login', message:'Usuário ou senha inválida!'})
+            })
     };
 
     return (
@@ -71,7 +72,6 @@ const Login = () => {
                         register={register}
                         errors={errors.password}
                     />
-
 
                     <Check name="ckeckRemember" items={remember} register={register} />
 

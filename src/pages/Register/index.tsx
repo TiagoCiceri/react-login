@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
@@ -48,7 +48,7 @@ const Register = () => {
     const onSubmit = (dataInput: InputsProps) => {
         console.log(dataInput);
 
-        axios.post('http://127.0.0.1:3333/login', dataInput)
+        axios.post('http://127.0.0.1:3333/user', dataInput)
             .then(resp => {
                 const { data } = resp;
                 if (data) {
@@ -101,7 +101,7 @@ const Register = () => {
                         errors={errors.confirmPassword}
                     />
 
-                    <Buttonform type="submit">Enviar</Buttonform>
+                    <Buttonform type="submit">Registrar</Buttonform>
                 </form>
             </Formcontent>
         </Container>
